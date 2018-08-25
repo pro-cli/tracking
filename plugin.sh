@@ -22,6 +22,8 @@ if [ "$1" == "track" ]; then
     printf "${GREEN}done${NORMAL}\n"
     exit
 elif [ "$1" == "trackings" ]; then
-    cat "$TRACKINGS_CONFIG_PATH" | jq .
+    . "$BASE_DIR/plugins/tracking/includes/bootstrap.sh"
+
+    cat "$TRACKING_CONFIG_PATH" | jq .
     exit
 fi
